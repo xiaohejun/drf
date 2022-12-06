@@ -15,5 +15,7 @@ class ProductSeriallizer(serializers.ModelSerializer):
         ]
     
     def get_my_discount(self, obj):
-        print(obj.id)
+        if not isinstance(obj, Product):
+            return None
+
         return obj.get_discount()
